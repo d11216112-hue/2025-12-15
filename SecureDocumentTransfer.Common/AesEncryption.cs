@@ -8,6 +8,14 @@ namespace SecureDocumentTransfer.Common;
 /// </summary>
 public static class AesEncryption
 {
+    // ⚠️ 安全警告 (Security Warning) ⚠️
+    // 此金鑰與初始向量僅供教育與展示用途
+    // 實際部署時必須：
+    // 1. 使用密碼學安全的隨機數產生器生成金鑰
+    // 2. 實作安全的金鑰管理與交換機制（建議使用 RSA 或 Diffie-Hellman）
+    // 3. 每次傳輸使用不同的隨機 IV
+    // 4. 將金鑰儲存在安全的密鑰保存庫中（如 Azure Key Vault）
+    
     // 128 位元 (16 Bytes) 金鑰 - 發送端與接收端必須使用相同金鑰
     private static readonly byte[] Key = new byte[16] 
     { 
@@ -44,7 +52,7 @@ public static class AesEncryption
     }
 
     /// <summary>
-    /// 加密位元組陣列
+    /// 加密位元組陣列（適用於小型檔案，大型檔案建議使用串流方式）
     /// </summary>
     /// <param name="data">原始資料</param>
     /// <returns>加密後的資料</returns>
@@ -88,7 +96,7 @@ public static class AesEncryption
     }
 
     /// <summary>
-    /// 解密位元組陣列
+    /// 解密位元組陣列（適用於小型檔案，大型檔案建議使用串流方式）
     /// </summary>
     /// <param name="encryptedData">加密資料</param>
     /// <returns>解密後的資料</returns>

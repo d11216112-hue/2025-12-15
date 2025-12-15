@@ -82,6 +82,9 @@ class Program
                     Console.WriteLine($"   加密大小: {fileSize:N0} bytes");
 
                     // 接收加密資料
+                    // ⚠️ 注意：此實作將整個檔案載入記憶體
+                    // 對於大型檔案（>100MB），建議使用串流方式處理
+                    // 對於超過 2GB 的檔案，需修改為 long 型態並分段處理
                     Console.WriteLine("📥 接收加密資料中...");
                     byte[] encryptedData = new byte[fileSize];
                     await ReadExactAsync(stream, encryptedData, (int)fileSize);
@@ -130,11 +133,14 @@ class Program
     }
 
     /// <summary>
-    /// 確保讀取指定長度的資料
+    /// 確保讀取指定長度的資料，帶有超時保護
     /// </summary>
     private static async Task ReadExactAsync(NetworkStream stream, byte[] buffer, int count)
     {
         int totalRead = 0;
+        // 設定讀取超時為 30 秒
+        stream.ReadTimeout = 30000;
+        
         while (totalRead < count)
         {
             int bytesRead = await stream.ReadAsync(buffer, totalRead, count - totalRead);

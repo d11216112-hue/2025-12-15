@@ -46,6 +46,9 @@ class Program
             // 讀取檔案
             Console.WriteLine();
             Console.WriteLine($"📄 讀取檔案: {Path.GetFileName(filePath)}");
+            
+            // ⚠️ 注意：此實作將整個檔案載入記憶體
+            // 對於大型檔案（>100MB），建議使用串流方式處理
             byte[] fileData = await File.ReadAllBytesAsync(filePath);
             Console.WriteLine($"   檔案大小: {fileData.Length:N0} bytes");
 
