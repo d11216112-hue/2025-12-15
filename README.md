@@ -1,5 +1,20 @@
 # 電子公文傳輸系統 (Secure Document Transfer System)
 
+[![.NET Version](https://img.shields.io/badge/.NET-8.0-512BD4)](https://dotnet.microsoft.com/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com)
+[![Security](https://img.shields.io/badge/CodeQL-passing-brightgreen)](https://github.com)
+[![License](https://img.shields.io/badge/license-Educational-blue)](https://github.com)
+
+## 📚 完整文件導覽
+
+- **[🚀 QUICK_START.md](QUICK_START.md)** - 5分鐘快速開始指南
+- **[📖 USAGE_GUIDE.md](USAGE_GUIDE.md)** - 詳細使用手冊與範例
+- **[🔒 SECURITY.md](SECURITY.md)** - 安全性考量與建議
+- **[📊 PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - 專題成果總結
+- **[🎬 DEMONSTRATION.md](DEMONSTRATION.md)** - 系統演示範例
+
+---
+
 ## 專題摘要 (Abstract)
 
 本專題開發了一套具備資訊安全機制的電子公文傳輸系統。系統整合了 **AES (Advanced Encryption Standard)** 進階加密標準與 **TCP/IP** 網路協定，確保公文檔案在網路傳輸過程中即使遭竊取也無法被讀取，唯有持有對應金鑰的接收端才能解密還原，成功達成了電子公文「無紙化」與「高機密性」的雙重目標。
